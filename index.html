@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Brasero De Los Pibes | Comida Argentina en Montcada i Reixac</title>
+    <meta name="description"
+        content="Restaurante de comida argentina en Montcada i Reixac. Asados, empanadas, chaulafán y el mejor sabor argentino en Carrer Major.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --fire-orange: #E85D04;
+            --fire-red: #D00000;
+            --brazil-brown: #6B3E26;
+            --meat-brown: #3E2723;
+            --warm-yellow: #FFB703;
+            --argentina-blue: #75AADB;
+            --argentina-white: #FFFFFF;
+            --cream: #FFF8E7;
+            --dark: #2C1810;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--cream);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* --- HEADER --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(135deg, var(--meat-brown) 0%, var(--brazil-brown) 100%);
+            color: var(--argentina-white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: var(--warm-yellow);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--argentina-white);
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* --- HERO --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(44, 24, 16, 0.7), rgba(44, 24, 16, 0.7)),
+                url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--argentina-white);
+            padding: 0 1rem;
+            position: relative;
+        }
+
+        .hero::after {
+            content: "🇦🇷";
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            font-size: 4rem;
+            opacity: 0.3;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            font-weight: 700;
+        }
+
+        .hero-content h1 span {
+            color: var(--warm-yellow);
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-location {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: rgba(255, 183, 3, 0.2);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--fire-orange), var(--fire-red));
+            color: var(--argentina-white);
+            box-shadow: 0 4px 15px rgba(232, 93, 4, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(232, 93, 4, 0.6);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--argentina-white);
+            border: 3px solid var(--argentina-white);
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--argentina-white);
+            color: var(--meat-brown);
+            transform: translateY(-3px);
+        }
+
+        /* --- SECCIONES --- */
+        section {
+            padding: 5rem 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: var(--meat-brown);
+            margin-bottom: 0.8rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--fire-orange), var(--warm-yellow));
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--brazil-brown);
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        /* --- SOBRE NOSOTROS --- */
+        .about {
+            background: linear-gradient(135deg, var(--cream) 0%, #FFE4C4 100%);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            color: var(--meat-brown);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            color: var(--brazil-brown);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 600;
+            color: var(--meat-brown);
+        }
+
+        .feature::before {
+            content: "✓";
+            background-color: var(--fire-orange);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* --- MENÚ DEL DÍA --- */
+        .daily-menu {
+            background: linear-gradient(135deg, var(--meat-brown) 0%, var(--brazil-brown) 100%);
+            color: var(--argentina-white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .daily-menu .section-header h2 {
+            color: var(--argentina-white);
+        }
+
+        .daily-menu .section-header h2::after {
+            background: var(--warm-yellow);
+        }
+
+        .menu-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            border: 3px solid var(--warm-yellow);
+            position: relative;
+            z-index: 1;
+        }
+
+        .menu-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--warm-yellow);
+        }
+
+        .menu-items {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .menu-items li {
+            font-size: 1.3rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .menu-items li:last-child {
+            border-bottom: none;
+        }
+
+        .menu-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--warm-yellow);
+            margin: 2rem 0;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .menu-schedule {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--fire-orange);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        /* --- CARTA DESPLEGABLE --- */
+        .carta-section {
+            background-color: var(--cream);
+        }
+
+        .carta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .carta-card {
+            background-color: var(--argentina-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-top: 5px solid var(--fire-orange);
+        }
+
+        .carta-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(232, 93, 4, 0.2);
+        }
+
+        .carta-card-header {
+            padding: 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--meat-brown) 0%, var(--brazil-brown) 100%);
+            color: var(--argentina-white);
+        }
+
+        .carta-card-header .carta-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .carta-card-header h3 {
+            font-size: 1.8rem;
+            color: var(--warm-yellow);
+            margin-bottom: 0.5rem;
+        }
+
+        .carta-card-header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .carta-card-header .click-hint {
+            margin-top: 1rem;
+            display: inline-block;
+            background-color: rgba(255, 183, 3, 0.2);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .carta-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            background-color: var(--cream);
+        }
+
+        .carta-card.active .carta-details {
+            max-height: 3000px;
+            padding: 1.5rem;
+        }
+
+        .carta-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 1rem;
+            background-color: var(--argentina-white);
+            border-radius: 8px;
+            margin-bottom: 0.8rem;
+            border-left: 4px solid var(--fire-orange);
+            transition: all 0.3s ease;
+        }
+
+        .carta-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .carta-item-info {
+            flex-grow: 1;
+            padding-right: 1rem;
+        }
+
+        .carta-item-info h4 {
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--meat-brown);
+            margin-bottom: 0.3rem;
+        }
+
+        .carta-item-info p {
+            font-size: 0.85rem;
+            color: var(--brazil-brown);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .carta-item-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--fire-red);
+            white-space: nowrap;
+        }
+
+        .carta-taper {
+            text-align: center;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--warm-yellow), var(--fire-orange));
+            color: var(--argentina-white);
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .toggle-icon {
+            text-align: center;
+            padding: 1rem;
+            color: var(--fire-orange);
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+            background-color: var(--cream);
+        }
+
+        .carta-card.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        /* --- GALERÍA --- */
+        .gallery {
+            background-color: var(--cream);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 12px;
+            height: 300px;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* --- CONTACTO --- */
+        .contact {
+            background: linear-gradient(135deg, var(--argentina-white) 0%, var(--cream) 100%);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            color: var(--meat-brown);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info>p {
+            color: var(--brazil-brown);
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-details {
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .contact-item strong {
+            display: block;
+            margin-bottom: 0.3rem;
+            color: var(--meat-brown);
+            font-weight: 700;
+        }
+
+        .contact-item span {
+            color: var(--brazil-brown);
+            font-size: 1rem;
+        }
+
+        .hours-table {
+            background-color: var(--argentina-white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            border-left: 4px solid var(--fire-orange);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--cream);
+        }
+
+        .hours-row:last-child {
+            border-bottom: none;
+        }
+
+        .hours-row strong {
+            color: var(--meat-brown);
+            font-weight: 700;
+        }
+
+        .hours-row span {
+            color: var(--brazil-brown);
+        }
+
+        .map-container {
+            background-color: var(--cream);
+            border-radius: 12px;
+            overflow: hidden;
+            height: 100%;
+            min-height: 400px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* --- CTA FINAL --- */
+        .cta-section {
+            background: linear-gradient(135deg, var(--fire-orange), var(--fire-red));
+            text-align: center;
+            color: var(--argentina-white);
+            padding: 6rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: "🔥";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20rem;
+            opacity: 0.05;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-white {
+            background-color: var(--argentina-white);
+            color: var(--fire-red);
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-white:hover {
+            background-color: var(--dark);
+            color: var(--argentina-white);
+            transform: translateY(-3px);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--dark);
+            color: var(--argentina-white);
+            text-align: center;
+            padding: 3rem 1.5rem;
+        }
+
+        footer .logo {
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: var(--warm-yellow);
+            font-weight: 600;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background: linear-gradient(135deg, var(--meat-brown) 0%, var(--brazil-brown) 100%);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2.5rem;
+                transition: left 0.3s ease;
+                z-index: 1000;
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            nav a {
+                font-size: 1.5rem;
+                color: var(--argentina-white);
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .hero-location {
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+
+            .about,
+            .contact {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-content h2,
+            .contact-info h2 {
+                font-size: 2rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+
+            .menu-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .menu-card h3 {
+                font-size: 2rem;
+            }
+
+            .menu-price {
+                font-size: 2.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section h2 {
+                font-size: 2.2rem;
+            }
+
+            .carta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .carta-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .carta-item-price {
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">El Brasero De Los Pibes</div>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav>
+            <ul id="navMenu">
+                <li><a href="#inicio" onclick="closeMenu()">Inicio</a></li>
+                <li><a href="#nosotros" onclick="closeMenu()">Nosotros</a></li>
+                <li><a href="#menu-dia" onclick="closeMenu()">Menú del Día</a></li>
+                <li><a href="#carta" onclick="closeMenu()">Carta</a></li>
+                <li><a href="#galeria" onclick="closeMenu()">Galería</a></li>
+                <li><a href="#contacto" onclick="closeMenu()">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <div class="hero-location">
+                <span>📍</span>
+                <span>Carrer Major, 9 - Montcada i Reixac</span>
+            </div>
+            <h1>El Brasero <span>De Los Pibes</span></h1>
+            <p>Auténtica comida argentina en el corazón de Montcada. Asados, empanadas y el mejor sabor del sur.</p>
+            <div>
+                <a href="#carta" class="btn btn-primary">Ver Carta</a>
+                <a href="tel:+34634470448" class="btn btn-outline">📞 Reservar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section id="nosotros" class="about">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+                alt="Asado argentino">
+        </div>
+        <div class="about-content">
+            <h2>Sabor Argentino Auténtico</h2>
+            <p>En El Brasero De Los Pibes traemos el auténtico sabor de Argentina a Montcada i Reixac. Somos un
+                restaurante familiar especializado en asados a la parrilla, empanadas caseras y los platos tradicionales
+                que tanto nos gustan.</p>
+            <p>Nuestra carne es de primera calidad, cocinada a la parrilla como se hace en Argentina. Desde el clásico
+                chaulafán hasta las empanadas salteñas, cada plato está preparado con amor y los ingredientes más
+                frescos.</p>
+            <p>Ubicados en la céntrica Carrer Major, te esperamos para que disfrutes de una experiencia gastronómica
+                única con el mejor ambiente y la mejor atención.</p>
+
+            <div class="features">
+                <div class="feature">Carne a la parrilla</div>
+                <div class="feature">Empanadas caseras</div>
+                <div class="feature">Productos frescos</div>
+                <div class="feature">Ambiente familiar</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENÚ DEL DÍA -->
+    <section id="menu-dia" class="daily-menu">
+        <div class="section-header">
+            <h2>Menú del Día</h2>
+            <p>Disfruta de nuestra comida casera todos los días laborables</p>
+        </div>
+
+        <div class="menu-card">
+            <h3>🍽️ Menú Completo</h3>
+            <ul class="menu-items">
+                <li>🥗 Primero (Entrada o ensalada)</li>
+                <li>🥩 Segundo (Plato principal)</li>
+                <li>🥤 Bebida (Incluida)</li>
+                <li>🍰 Postre (Incluido)</li>
+            </ul>
+            <div class="menu-price">13,00€</div>
+            <div class="menu-schedule">
+                <span>📅</span>
+                <span>Lunes a Viernes</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARTA DESPLEGABLE -->
+    <section id="carta" class="carta-section">
+        <div class="section-header">
+            <h2>Nuestra Carta</h2>
+            <p>Haz clic en cada categoría para ver los platos y precios</p>
+        </div>
+
+        <div class="carta-grid">
+            <!-- DESAYUNOS -->
+            <div class="carta-card" onclick="toggleCarta(this)">
+                <div class="carta-card-header">
+                    <div class="carta-icon">🌅</div>
+                    <h3>Desayunos</h3>
+                    <p>Bolones, empanadas, bocadillos y más</p>
+                    <div class="click-hint">Haz clic para ver platos</div>
+                </div>
+                <div class="carta-details">
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Bolón de Queso</h4>
+                            <p>Con huevo frito tierno de regalo. Huevo adicional 0,60€</p>
+                        </div>
+                        <div class="carta-item-price">5,50€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Bolón de Chicharrón</h4>
+                            <p>Con huevo frito tierno de regalo. Huevo adicional 0,60€</p>
+                        </div>
+                        <div class="carta-item-price">5,50€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Bolón Mixto</h4>
+                            <p>Queso y chicharrón con huevo frito de regalo</p>
+                        </div>
+                        <div class="carta-item-price">5,50€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Bolón con Bistec Latino</h4>
+                            <p>Bolón mixto o de chicharrón/queso con carne de ternera en salsa de tomate</p>
+                        </div>
+                        <div class="carta-item-price">14,00€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Bolón XL de Queso o Chicharrón</h4>
+                            <p>Con huevo frito tierno de regalo</p>
+                        </div>
+                        <div class="carta-item-price">7,50€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Patacones con Queso</h4>
+                        </div>
+                        <div class="carta-item-price">5,50€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Arepas de Queso</h4>
+                            <p>Porción 2 unidades</p>
+                        </div>
+                        <div class="carta-item-price">5,50€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Empanadas de Carne</h4>
+                            <p>Por unidad</p>
+                        </div>
+                        <div class="carta-item-price">4,00€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Empanadas de Pollo</h4>
+                            <p>Por unidad</p>
+                        </div>
+                        <div class="carta-item-price">4,00€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Empanadas de Queso</h4>
+                            <p>Por unidad</p>
+                        </div>
+                        <div class="carta-item-price">4,00€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Baleadas</h4>
+                            <p>Orden de 2 unidades</p>
+                        </div>
+                        <div class="carta-item-price">10,00€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Tacos de Pollo</h4>
+                            <p>Orden de 2 unidades</p>
+                        </div>
+                        <div class="carta-item-price">10,00€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Tacos de Cerdo con Chicharrón</h4>
+                        </div>
+                        <div class="carta-item-price">6,00€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Bocadillo de Bistec de Ternera</h4>
+                        </div>
+                        <div class="carta-item-price">5,50€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Bocadillo de Lomo y Queso</h4>
+                        </div>
+                        <div class="carta-item-price">4,50€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Bocadillo de Bacon y Queso</h4>
+                        </div>
+                        <div class="carta-item-price">4,00€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Bocadillo de Tortilla Francesa</h4>
+                        </div>
+                        <div class="carta-item-price">3,50€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Bocadillo de Atún</h4>
+                        </div>
+                        <div class="carta-item-price">4,00€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Bocadillo de Fuet</h4>
+                        </div>
+                        <div class="carta-item-price">3,80€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Sánduche de Chancho</h4>
+                        </div>
+                        <div class="carta-item-price">5,50€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Tiras de Pollo con Patatas o Patacones</h4>
+                        </div>
+                        <div class="carta-item-price">8,00€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Salchipapas</h4>
+                        </div>
+                        <div class="carta-item-price">5,50€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Tequeños de Queso</h4>
+                            <p>6 unidades</p>
+                        </div>
+                        <div class="carta-item-price">5,50€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Patatas Bravas</h4>
+                        </div>
+                        <div class="carta-item-price">4,00€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Calamares a la Romana</h4>
+                            <p>Con alioli</p>
+                        </div>
+                        <div class="carta-item-price">7,00€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Hamburguesa: Ternera o Pollo</h4>
+                        </div>
+                        <div class="carta-item-price">7,00€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Maduro Frito con Queso</h4>
+                        </div>
+                        <div class="carta-item-price">5,50€</div>
+                    </div>
+                    <div class="carta-taper">
+                        TAPER PARA LLEVAR: 0,80€
+                    </div>
+                    <div class="toggle-icon">▼</div>
+                </div>
+            </div>
+
+            <!-- PLATOS A LA CARTA -->
+            <div class="carta-card" onclick="toggleCarta(this)">
+                <div class="carta-card-header">
+                    <div class="carta-icon">🥘</div>
+                    <h3>Platos a la Carta</h3>
+                    <p>Platos principales, carnes y especialidades</p>
+                    <div class="click-hint">Haz clic para ver platos</div>
+                </div>
+                <div class="carta-details">
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Encebollado de Atún</h4>
+                            <p>Con chifle</p>
+                        </div>
+                        <div class="carta-item-price">14,00€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Ceviche de Camarón</h4>
+                            <p>Con chifle</p>
+                        </div>
+                        <div class="carta-item-price">15,00€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Guatita</h4>
+                            <p>Con arroz, maduro frito, huevo duro</p>
+                        </div>
+                        <div class="carta-item-price">14,00€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Chaulafán</h4>
+                            <p>Arroz, salteado de cerdo, pollo, cebolla, pimiento, zanahoria, huevo, guisantes, lomo de
+                                sal y maduro frito</p>
+                        </div>
+                        <div class="carta-item-price">14,00€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Fritada de Cerdo</h4>
+                            <p>Con arroz, ensalada de lechuga, patacones</p>
+                        </div>
+                        <div class="carta-item-price">14,00€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Secreto de Cerdo</h4>
+                            <p>Con patatas fritas y ensalada</p>
+                        </div>
+                        <div class="carta-item-price">15,00€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Hornado de Cerdo</h4>
+                            <p>Con arroz, ensalada de mole, patata</p>
+                        </div>
+                        <div class="carta-item-price">15,00€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Carne Frita de Ternera</h4>
+                            <p>Arroz, frijoles y patacones</p>
+                        </div>
+                        <div class="carta-item-price">15,00€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Pollo a la Plancha</h4>
+                            <p>Patatas fritas, ensalada, alioli</p>
+                        </div>
+                        <div class="carta-item-price">14,00€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Pollo Choco</h4>
+                            <p>Chuleta de pollo, chicharrón, arroz</p>
+                        </div>
+                        <div class="carta-item-price">14,00€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Dorada Frita</h4>
+                            <p>Arroz, ensalada y patacones</p>
+                        </div>
+                        <div class="carta-item-price">15,00€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Bistec Latino</h4>
+                            <p>Huevo frito, carne de ternera con salteado de cebolla y pimientos en salsa de tomate de
+                                la casa</p>
+                        </div>
+                        <div class="carta-item-price">14,00€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Bolón con Bistec</h4>
+                            <p>Huevo frito, carne de ternera con salteado de cebolla y pimientos en salsa de tomate</p>
+                        </div>
+                        <div class="carta-item-price">14,00€</div>
+                    </div>
+                    <div class="carta-item">
+                        <div class="carta-item-info">
+                            <h4>Crema de Calabaza</h4>
+                        </div>
+                        <div class="carta-item-price">6,00€</div>
+                    </div>
+                    <div class="toggle-icon">▼</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERÍA -->
+    <section id="galeria" class="gallery">
+        <div class="section-header">
+            <h2>Nuestros Platos</h2>
+            <p>Así se ve el auténtico sabor argentino</p>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80"
+                    alt="Asado argentino">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=600&q=80"
+                    alt="Empanadas">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80"
+                    alt="Parrilla">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1432139509613-5c4255815697?auto=format&fit=crop&w=600&q=80"
+                    alt="Carne a la parrilla">
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="contact">
+        <div class="contact-info">
+            <h2>Visítanos</h2>
+            <p>Estamos en el corazón de Montcada i Reixac, listos para atenderte con el mejor sabor argentino</p>
+
+            <div class="contact-details">
+                <div class="contact-item">
+                    <div class="contact-item-icon">📍</div>
+                    <div>
+                        <strong>Dirección</strong>
+                        <span>Carrer Major, 9<br>08110 Montcada i Reixac, Barcelona</span>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-item-icon"></div>
+                    <div>
+                        <strong>Teléfono</strong>
+                        <span><a href="tel:+34634470448">634 470 448</a></span>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-item-icon">🕐</div>
+                    <div>
+                        <strong>Horario de apertura</strong>
+                        <div class="hours-table">
+                            <div class="hours-row">
+                                <strong>Lunes</strong>
+                                <span>9:00 – 17:00 / 18:00 – 22:00</span>
+                            </div>
+                            <div class="hours-row">
+                                <strong>Martes</strong>
+                                <span>9:00 – 17:00 / 18:00 – 22:00</span>
+                            </div>
+                            <div class="hours-row">
+                                <strong>Miércoles</strong>
+                                <span>9:00 – 17:00 / 18:00 – 22:00</span>
+                            </div>
+                            <div class="hours-row">
+                                <strong>Jueves</strong>
+                                <span>9:00 – 17:00 / 18:00 – 22:00</span>
+                            </div>
+                            <div class="hours-row">
+                                <strong>Viernes</strong>
+                                <span>9:00 – 17:00 / 18:00 – 22:00</span>
+                            </div>
+                            <div class="hours-row">
+                                <strong>Sábado</strong>
+                                <span>9:00 – 22:00</span>
+                            </div>
+                            <div class="hours-row">
+                                <strong>Domingo</strong>
+                                <span>9:00 – 17:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2994.1234567890123!2d2.2345678901234567!3d41.48765432109876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2a2a2a2a2a2%3A0x1234567890abcdef!2sCarrer%20Major%2C%209%2C%2008110%20Montcada%20i%20Reixac%2C%20Barcelona!5e0!3m2!1ses!2ses!4v1234567890123!5m2!1ses!2ses"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-section">
+        <h2>¿Te esperamos?</h2>
+        <p>Reserva tu mesa y disfruta del auténtico sabor argentino en Montcada i Reixac</p>
+        <a href="tel:+34634470448" class="btn btn-white">📞 Llamar Ahora</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="logo">El Brasero De Los Pibes 🔥</div>
+        <p>Carrer Major, 9, 08110 Montcada i Reixac, Barcelona</p>
+        <p>Tel: <a href="tel:+34634470448">634 470 448</a></p>
+        <p style="margin-top: 2rem; font-size: 0.85rem;">© 2024 El Brasero De Los Pibes. Todos los derechos reservados.
+            🇦</p>
+    </footer>
+
+    <!-- SCRIPT MENÚ MÓVIL Y CARTA DESPLEGABLE -->
+    <script>
+        // Menú móvil
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        function closeMenu() {
+            menuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+
+        window.addEventListener('scroll', () => {
+            if (navMenu.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+
+        // Función para desplegar carta
+        function toggleCarta(card) {
+            // Cerrar todas las demás
+            document.querySelectorAll('.carta-card').forEach(c => {
+                if (c !== card) {
+                    c.classList.remove('active');
+                }
+            });
+
+            // Alternar la actual
+            card.classList.toggle('active');
+        }
+    </script>
+
+</body>
+
+</html>
