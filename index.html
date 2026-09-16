@@ -45,9 +45,7 @@
             line-height: 1.6;
         }
 
-        h1,
-        h2,
-        h3 {
+        h1, h2, h3 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
         }
@@ -582,7 +580,7 @@
             margin-bottom: 1.5rem;
         }
 
-        .contact-info>p {
+        .contact-info > p {
             color: var(--brazil-brown);
             margin-bottom: 2.5rem;
             font-size: 1.1rem;
@@ -1288,7 +1286,7 @@
                 </div>
 
                 <div class="contact-item">
-                    <div class="contact-item-icon"></div>
+                    <div class="contact-item-icon">📞</div>
                     <div>
                         <strong>Teléfono</strong>
                         <span><a href="tel:+34634470448">634 470 448</a></span>
@@ -1355,7 +1353,7 @@
         <p>Carrer Major, 9, 08110 Montcada i Reixac, Barcelona</p>
         <p>Tel: <a href="tel:+34634470448">634 470 448</a></p>
         <p style="margin-top: 2rem; font-size: 0.85rem;">© 2024 El Brasero De Los Pibes. Todos los derechos reservados.
-            🇦</p>
+            🇦🇷</p>
     </footer>
 
     <!-- SCRIPT MENÚ MÓVIL Y CARTA DESPLEGABLE -->
@@ -1380,20 +1378,43 @@
             }
         });
 
-        // Función para desplegar carta
+        // ✅ FUNCIÓN CORREGIDA PARA DESPLEGAR CARTA CON SCROLL AUTOMÁTICO
         function toggleCarta(card) {
-            // Cerrar todas las demás
+            // 1. Detectar si la carta que hemos clicado ya está abierta
+            const estaAbierta = card.classList.contains('active');
+            
+            // 2. Cerrar todas las demás cartas
             document.querySelectorAll('.carta-card').forEach(c => {
                 if (c !== card) {
                     c.classList.remove('active');
                 }
             });
 
-            // Alternar la actual
-            card.classList.toggle('active');
+            // 3. Si estaba abierta, la cerramos y hacemos scroll hacia arriba
+            if (estaAbierta) {
+                card.classList.remove('active');
+                
+                // Esperamos un momento a que empiece la animación de cierre
+                setTimeout(() => {
+                    // Calculamos la posición de la tarjeta en la página
+                    const rect = card.getBoundingClientRect();
+                    const posicionAbsoluta = rect.top + window.scrollY;
+                    
+                    // Restamos 100px para que el header fijo no tape el título de la tarjeta
+                    const destino = posicionAbsoluta - 100;
+                    
+                    // Hacemos el scroll suave
+                    window.scrollTo({
+                        top: destino,
+                        behavior: 'smooth'
+                    });
+                }, 150);
+            } else {
+                // 4. Si estaba cerrada, simplemente la abrimos
+                card.classList.add('active');
+            }
         }
     </script>
 
 </body>
-
 </html>
